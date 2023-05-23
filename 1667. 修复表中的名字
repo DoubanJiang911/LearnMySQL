@@ -1,0 +1,11 @@
+# Write your MySQL query statement below
+SELECT user_id
+	, concat(ucase(LEFT(name, 1)), lcase(substr(name, 2))) AS name
+FROM Users
+ORDER BY user_id;
+
+# replace替换会导致后续字符中，和首字母相同的字符一并替换大写
+# SELECT user_id
+#  	, replace(lcase(name), lcase(LEFT(name, 1)), ucase(LEFT(name, 1))) AS name
+# FROM Users;
+#
