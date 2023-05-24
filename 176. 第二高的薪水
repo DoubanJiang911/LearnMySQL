@@ -10,3 +10,5 @@ FROM (
 	ORDER BY salary DESC
 	LIMIT 2
 ) t;
+
+# SELECT distinct(salary) 避免查询最大数值和第二数值的结果为两个相同数值的情况
