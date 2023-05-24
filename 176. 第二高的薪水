@@ -1,0 +1,12 @@
+# Write your MySQL query statement below
+
+SELECT CASE 
+		WHEN count(*) < 2 THEN NULL
+		ELSE min(salary)
+	END AS SecondHighestSalary
+FROM (
+	SELECT distinct(salary)
+	FROM Employee
+	ORDER BY salary DESC
+	LIMIT 2
+) t;
