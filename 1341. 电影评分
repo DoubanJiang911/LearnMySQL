@@ -1,0 +1,16 @@
+# Write your MySQL query statement below
+
+(SELECT u.name AS results
+FROM MovieRating mv
+	LEFT JOIN Users u ON mv.user_id = u.user_id
+GROUP BY mv.user_id
+ORDER BY count(*) DESC, u.name
+LIMIT 1)
+UNION ALL
+(SELECT m.title AS results
+FROM MovieRating mv
+	LEFT JOIN Movies m ON mv.movie_id = m.movie_id
+WHERE mv.created_at LIKE '2020-02%'
+GROUP BY mv.movie_id
+ORDER BY avg(mv.rating) DESC, m.title
+LIMIT 1);
